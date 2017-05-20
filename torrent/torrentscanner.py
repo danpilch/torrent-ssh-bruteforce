@@ -2,7 +2,6 @@ from celery import group
 from sh import ssh
 from tasks import check_available_auth_methods, check_open_port
 import libtorrent
-import nmap
 import time
 import sys
 

@@ -4,7 +4,6 @@ from torrent.torrentscanner import TorrentScanner
 import argparse
 
 
-
 def main():
     parser = argparse.ArgumentParser(
         description="Torrent peer analysis"
