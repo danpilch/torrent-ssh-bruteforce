@@ -28,3 +28,12 @@ def check_available_auth_methods(ip):
             return None
     except sh.TimeoutException:
         return None
+
+@app.task()
+def bruteforce_ssh(ip, password):
+    try:
+        check = sh.ssh()
+    except Exception as e:
+        return None
+
+

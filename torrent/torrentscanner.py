@@ -13,6 +13,7 @@ class TorrentScanner(object):
         self.peer_collection_seconds = collection_duration
         self.torrent_ip_list = []
         self.open_ip_list = []
+        self.bruteforce_attempt_list = []
 
     def get_peers_from_swarm(self): 
         session = libtorrent.session()
@@ -55,7 +56,8 @@ class TorrentScanner(object):
 
         jobs = group(job_list)
         results = jobs.apply_async()
-        test = self.cleanup_list(results.join())
+        self.bruteforce_attempt_list = self.cleanup_list(results.join())
+        print self.bruteforce_attempt_list
 
     def password_bruteforce(self):
         pass
